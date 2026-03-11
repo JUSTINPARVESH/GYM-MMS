@@ -1,0 +1,9 @@
+{
+  "name": "Gym Membership Management System",
+  "description": "A comprehensive system for managing gym members, subscriptions, and analytics with real-time tracking.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}

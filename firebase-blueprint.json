@@ -1,0 +1,47 @@
+{
+  "entities": {
+    "Member": {
+      "title": "Member",
+      "description": "A gym member record",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Full name of the member" },
+        "age": { "type": "number", "description": "Age of the member" },
+        "phoneNumber": { "type": "string", "description": "Contact number" },
+        "gender": { "type": "string", "enum": ["Male", "Female", "Other"] },
+        "membershipPlan": { "type": "string", "enum": ["Monthly", "Quarterly", "Half-Yearly", "Yearly"] },
+        "joinDate": { "type": "string", "format": "date-time", "description": "Date the member joined" },
+        "expiryDate": { "type": "string", "format": "date-time", "description": "Date the membership expires" },
+        "paymentStatus": { "type": "string", "enum": ["Paid", "Pending"] },
+        "amountPaid": { "type": "number", "description": "Total amount paid" },
+        "status": { "type": "string", "enum": ["Active", "Expiring Soon", "Expired"] },
+        "aadhaarNumber": { "type": "string", "description": "12-digit Aadhaar number" },
+        "address": { "type": "string", "description": "Street address" },
+        "city": { "type": "string", "description": "City" },
+        "state": { "type": "string", "description": "State" },
+        "pincode": { "type": "string", "description": "Pincode" }
+      },
+      "required": ["name", "phoneNumber", "membershipPlan", "joinDate", "expiryDate", "paymentStatus", "aadhaarNumber", "address", "city", "state", "pincode"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "System administrator",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/members": {
+      "schema": "Member",
+      "description": "Collection of gym members"
+    },
+    "/users": {
+      "schema": "Admin",
+      "description": "System administrators"
+    }
+  }
+}
